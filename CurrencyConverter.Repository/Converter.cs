@@ -41,32 +41,6 @@
             return convertedCurrency.ToUpperInvariant();
         }
 
-        private string CentsConvertedToWords(string amount, int centsIndex, string convertedCents)
-        {
-            var cents = amount.Substring(centsIndex + 1);
-            if (Convert.ToInt64(cents) > 0)
-            {
-                convertedCents = ConvertCentsValueToWords(cents);
-            }
-
-            return convertedCents;
-        }
-
-        private string ConvertCentsValueToWords(string cents)
-        {
-            var convertedCents = string.Empty;
-            foreach (var num in cents)
-            {
-                var amount = num.ToString();
-                var wordInEnglish = amount.Equals("0") ? "Zero" : WordInOnesPosition(amount);
-                wordInEnglish = string.Concat(wordInEnglish, " ");
-                convertedCents = string.Concat(convertedCents, wordInEnglish);
-
-            }
-
-            return convertedCents.TrimEnd();
-        }
-
         private string ConvertDollarValueToWords(string dollarValue)
         {
             var word = string.Empty;
